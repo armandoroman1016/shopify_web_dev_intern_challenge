@@ -13,8 +13,13 @@ const Movie = (props: Props): JSX.Element => {
     <div>
       <h4>{movie.Title}</h4>
       {movie.Poster && (
-        <img src={movie.Poster} alt={`Poster for ${movie.Title}`} />
+        <img
+          data-testid="movie-poster"
+          src={movie.Poster}
+          alt={`Poster for ${movie.Title}`}
+        />
       )}
+      <p>{movie.Year}</p>
       <button onClick={() => handleNomination(movie.imdbID)}>NOMINATE</button>
     </div>
   );
