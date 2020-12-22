@@ -10,7 +10,7 @@ const Movie = (props: Props): JSX.Element => {
   const { movie, handleNomination } = props;
 
   return (
-    <div>
+    <div className="movie">
       <h4>{movie.Title}</h4>
       {movie.Poster && (
         <img

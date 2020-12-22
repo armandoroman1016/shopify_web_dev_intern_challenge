@@ -1,0 +1,20 @@
+.movie{
+    // height: 200px;
+    // min-width: 50%;
+    h4{
+        font-size: 1.4rem;
+    }
+    img{
+        width: 50%;
+        height: auto;
+    }
+    button{
+        width: 50%;
+        border: none;
+        border-radius: 4px;
+        height: 2.4rem;
+        font-family: $primary-font;
+        background-color: $blue-accent;
+        font-weight: bold 
+    }
+}

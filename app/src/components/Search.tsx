@@ -33,8 +33,8 @@ const Search = (props: Props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="movieName">Movie Name</label>
+    <form className="moviesForm" onSubmit={handleSubmit}>
+      <label htmlFor="movieName">Search movie titles</label>
       <input
         placeholder="i.e 'Home Alone'"
         name="movieName"

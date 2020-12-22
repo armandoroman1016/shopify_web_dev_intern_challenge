@@ -20,7 +20,7 @@ describe("MoviesList", () => {
         listType="Nominated"
         handleNomination={() => null}
         movies={MOVIES}
-      />,
+      />
     );
     const heading = await queryByText(/Nominated/);
     expect(heading).toBeInTheDocument();
@@ -31,7 +31,7 @@ describe("MoviesList", () => {
         listType="Search Results"
         handleNomination={() => null}
         movies={MOVIES}
-      />,
+      />
     );
 
     const heading = await queryByText(/Search Results/);
@@ -43,7 +43,7 @@ describe("MoviesList", () => {
         listType="Nominated"
         handleNomination={() => null}
         movies={MOVIES}
-      />,
+      />
     );
 
     const heading = await queryByText(/Search Results/);
@@ -55,7 +55,7 @@ describe("MoviesList", () => {
         listType="Search Results"
         handleNomination={() => null}
         movies={MOVIES}
-      />,
+      />
     );
 
     const heading = await queryByText(/Nominated/);

@@ -14,7 +14,7 @@ const MoviesList = (props: Props) => {
   const { movies, handleNomination, listType, nominated } = props;
 
   return (
-    <div>
+    <div className="movieList">
       <h3>{listType}</h3>
       {listType === "Search Results"
         ? Object.keys(movies) &&

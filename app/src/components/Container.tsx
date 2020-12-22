@@ -23,8 +23,8 @@ const Container = (props: Props) => {
   };
 
   return (
-    <div>
-      <h3>Movie Nominator</h3>
+    <div className="app-container">
+      <h2>Movie Nominator</h2>
       <Search setSearchRes={setSearchRes} />
       <MovieList
         listType="Search Results"
