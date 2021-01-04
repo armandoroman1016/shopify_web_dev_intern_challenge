@@ -1,0 +1,7 @@
+.movieList{
+    display: flex;
+    flex-direction: column;
+    h3{
+        font-size: $heading-font-size;
+    }
+}

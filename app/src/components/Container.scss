@@ -1,0 +1,12 @@
+.app-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    h2{
+        font-family: $primary-font;
+        margin: 3rem auto;
+        color: $blue-accent;
+        font-size: $heading-font-size;
+    }
+}
