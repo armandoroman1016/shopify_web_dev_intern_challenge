@@ -1,13 +1,13 @@
-import React, { SetStateAction, Dispatch } from "react";
+import React from "react";
 import Movie from "./Movie";
 
 import { Movie as M } from "../types";
 
 interface Props {
-  movies: Record<string, M>;
-  handleNomination: (id: string) => void;
+  movies: M[];
+  handleNomination: (movie: M, action: "add" | "delete") => void;
   listType: "Nominated" | "Search Results";
-  nominated?: Set<string>;
+  nominated?: M[];
 }
 
 const MoviesList = (props: Props) => {
@@ -17,23 +17,25 @@ const MoviesList = (props: Props) => {
     <div className="movieList">
       <h3>{listType}</h3>
       {listType === "Search Results"
-        ? Object.keys(movies) &&
-          Object.values(movies).map((m) => {
+        ? movies &&
+          movies.map((m) => {
             return (
               <Movie
                 movie={m}
                 key={m.imdbID}
                 handleNomination={handleNomination}
+                buttonText="Nominate"
               />
             );
           })
         : nominated &&
-          Array.from(nominated).map((id) => {
+          nominated.map((movie) => {
             return (
               <Movie
-                movie={movies[id]}
-                key={id + "_nominated"}
+                movie={movie}
+                key={movie.imdbID + "_nominated"}
                 handleNomination={handleNomination}
+                buttonText="Dismiss"
               />
             );
           })}

@@ -1,13 +1,18 @@
-import React, { SetStateAction } from "react";
-import { Movie as MovieObj } from "../types";
+import React from "react";
+import { Movie as M } from "../types";
 
 interface Props {
-  movie: MovieObj;
-  handleNomination: (id: string) => void;
+  movie: M;
+  handleNomination: (movie: M, action: "add" | "delete") => void;
+  buttonText: "Nominate" | "Dismiss";
 }
 
 const Movie = (props: Props): JSX.Element => {
-  const { movie, handleNomination } = props;
+  const { movie, handleNomination, buttonText } = props;
+
+  const nominate = () => {
+    handleNomination(movie, movie.nominated ? "delete" : "add");
+  };
 
   return (
     <div className="movie">
@@ -20,7 +25,12 @@ const Movie = (props: Props): JSX.Element => {
         />
       )}
       <p>{movie.Year}</p>
-      <button onClick={() => handleNomination(movie.imdbID)}>NOMINATE</button>
+      <button
+        onClick={nominate}
+        disabled={buttonText === "Nominate" && movie.nominated}
+      >
+        {buttonText}
+      </button>
     </div>
   );
 };

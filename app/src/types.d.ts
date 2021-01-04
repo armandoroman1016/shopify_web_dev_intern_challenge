@@ -4,5 +4,5 @@ export type Movie = {
   Type: string;
   Year: string;
   imdbID: string;
-  Nominated?: boolean;
+  nominated?: boolean;
 };

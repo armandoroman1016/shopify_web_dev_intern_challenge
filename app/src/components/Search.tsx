@@ -4,11 +4,12 @@ import { Movie } from "../types";
 const KEY = process.env.REACT_APP_API_KEY;
 
 interface Props {
-  setSearchRes: React.Dispatch<SetStateAction<Record<string, Movie>>>;
+  setSearchRes: React.Dispatch<SetStateAction<Movie[]>>;
+  nominated: Movie[];
 }
 
 const Search = (props: Props) => {
-  const { setSearchRes } = props;
+  const { setSearchRes, nominated } = props;
 
   const [val, setVal] = useState("");
 
@@ -18,14 +19,15 @@ const Search = (props: Props) => {
     fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=${formatted}`)
       .then((res) => res.json())
       .then((data) => {
-        const map: Record<string, Movie> = {};
-        data.Search.forEach((item: Movie) => {
-          map[item.imdbID] = item;
+        if (!data.Search) throw new Error("Please enter a search title");
+        const nominatedIds = new Set(nominated.map((i) => i.imdbID));
+        data.Search.forEach((m: Movie) => {
+          if (nominatedIds.has(m.imdbID)) m.nominated = true;
         });
-        setSearchRes(map);
+        setSearchRes(data.Search);
         setVal("");
       })
-      .catch((err) => console.log(`ERROR: ${err}`));
+      .catch((err) => console.log(err));
   };
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
