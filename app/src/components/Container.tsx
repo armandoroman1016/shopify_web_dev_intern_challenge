@@ -2,6 +2,7 @@ import React from "react";
 import Search from "./Search";
 import MovieList from "./MoviesList";
 import { Movie } from "../types";
+import { Banner } from "./Banner";
 
 const { useState } = React;
 
@@ -53,6 +54,7 @@ const Container = (props: Props) => {
         movies={searchRes}
         handleNomination={handleNomination}
       />
+      <Banner nominated={nominated} />
     </div>
   );
 };
