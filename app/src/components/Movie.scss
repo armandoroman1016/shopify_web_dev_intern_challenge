@@ -4,6 +4,10 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    @media(min-width: $tablet){
+        width: 30%;
+        margin-bottom: 2rem;
+    }
     h4{
         text-align: center;
         font-size: 1.4rem;

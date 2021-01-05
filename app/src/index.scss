@@ -9,6 +9,11 @@ $input-color: rgb(32, 32, 32);
 $blue-accent: #50E7F0;
 $heading-font-size: 1.8rem;
 
+$tablet: 768px; 
+$desktop: 1024px;
+$xl-desktop: 1440px;
+
+
 html{
     font-size: 62.5%;
     font-family: $primary-font;
@@ -16,10 +21,13 @@ html{
 }
 
 body{
+    margin: 0;
+    padding: 0;
     background: $primary;
 }
 
 @import "./components/Container.scss";
 @import "./components/Search.scss";
 @import "./components/MovieList.scss";
-@import "./components/Movie.scss"
+@import "./components/Movie.scss";
+@import "./components/Banner.scss"

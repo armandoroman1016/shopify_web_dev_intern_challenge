@@ -15,21 +15,21 @@ const FILM: MovieObj = {
 describe("Movie", () => {
   it("Will render the movie title", async () => {
     const { findByText } = render(
-      <Movie movie={FILM} handleNomination={() => null} />
+      <Movie buttonText="Nominate" movie={FILM} handleNomination={() => null} />
     );
     const title = await findByText(FILM.Title);
     expect(title).toBeInTheDocument();
   });
   it("Will render the movie poster", async () => {
     const { container } = render(
-      <Movie movie={FILM} handleNomination={() => null} />
+      <Movie buttonText="Nominate" movie={FILM} handleNomination={() => null} />
     );
     const img = container.querySelector("img");
     expect(img?.src).toBe(FILM.Poster);
   });
   it("Will display the films year of release", async () => {
     const { findByText } = render(
-      <Movie movie={FILM} handleNomination={() => null} />
+      <Movie buttonText="Nominate" movie={FILM} handleNomination={() => null} />
     );
     const year = await findByText(FILM.Year);
     expect(year).toBeInTheDocument();

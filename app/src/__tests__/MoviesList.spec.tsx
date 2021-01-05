@@ -3,15 +3,15 @@ import { render } from "@testing-library/react";
 import MoviesList from "../components/MoviesList";
 import { Movie as MovieObj } from "../types";
 
-const MOVIES: Record<string, MovieObj> = {
-  1: {
+const MOVIES: MovieObj[] = [
+  {
     Poster: "https://rb.gy/enaq3a",
     Title: "Some arbitrary movie title",
     Type: "Classic",
     Year: "1938",
     imdbID: "123",
   },
-};
+];
 
 describe("MoviesList", () => {
   it("Will display 'Nominated' when specified as listType", async () => {
